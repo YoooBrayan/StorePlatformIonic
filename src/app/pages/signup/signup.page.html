@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-bold ion-text-center">Sign up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="user.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">NIT</ion-label>
+      <ion-input type="number" name="nit" [(ngModel)]="user.nit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="user.tipo_documento">
+        <ion-select-option value="1">CC</ion-select-option>
+        <ion-select-option value="2">Passport</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ID Number</ion-label>
+      <ion-input
+        type="text"
+        name="numberID"
+        [(ngModel)]="user.numero_documento"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-button class="ion-margin-top" expand="block" fill="outline" (click)="signUp()"
+      >Sign up</ion-button
+    >
+    <ion-item *ngIf="success">
+      <ion-label color="success">Your account has been successfully created</ion-label>
+    </ion-item> 
+    <ion-item *ngIf="error">
+      <ion-label color="danger">Invalid Information</ion-label>
+    </ion-item> 
+  </ion-list>
+</ion-content>

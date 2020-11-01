@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button dafaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">New Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Type</ion-label>
+      <ion-select name="tipo" [(ngModel)]="product.tipo">
+        <ion-select-option value="1">Packe</ion-select-option>
+        <ion-select-option value="2">Soda</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" name="nombre" [(ngModel)]="product.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Quantity</ion-label>
+      <ion-input
+        type="number"
+        name="quantity"
+        [(ngModel)]="product.cantidad"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="number" name="price" [(ngModel)]="product.valor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea
+        name="description"
+        [(ngModel)]="product.descripcion"
+      ></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Image</ion-label>
+      <ion-input type="text" name="image" [(ngModel)]="product.foto"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="product.foto !== ''" class="ion-margin-top">
+      <ion-img [src]="product.foto"></ion-img>
+    </ion-item>
+    <ion-button
+      class="ion-margin-top"
+      (click)="addProduct()"
+      expand="block"
+      shape="round"
+    >
+      Add
+    </ion-button>
+    <ion-item>
+      <ion-label *ngIf="isAdd" color="success">Product save!</ion-label>
+      <ion-label *ngIf="error" color="danger">Product Not save!</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
